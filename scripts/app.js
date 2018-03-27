@@ -25,6 +25,7 @@ const h1 = $('<h1>').text("My name is " + petName)
 h1.appendTo('.Character');
 $('input').val("");
 $('header').empty();
+$('.Instructions').empty();
 });
 
 
@@ -62,3 +63,10 @@ let boredom = 10
 $('#play').on('click', (event) => {
     console.log("play button clicked");
 });
+
+
+//Age
+let age = 1
+const $ageDiv = $('<div>');
+$ageDiv.text("Current age is " + age);
+$ageDiv.appendTo($('#age'));

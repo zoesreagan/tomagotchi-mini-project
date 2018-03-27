@@ -2,22 +2,57 @@ body {
   background-color: #D1F3FF;
 }
 
-h1 {
+header {
+  font-family: 'Press Start 2P', cursive;
+  color: #FFA4C4;
+  display: flex;
+  justify-content: center;
+}
+
+input {
+  font-family: 'Oxygen', sans-serif;
+  font-size: 15px;
+  padding: 10px;
 
 }
 
-h2 {
-
+h1 {
+  font-family: 'Press Start 2P', cursive;
+  color: #FFA4C4;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .Instructions{
-
+  font-family: 'Oxygen', sans-serif;
+  color: #364D7F;
+  display: flex;
+  justify-content: center;
 }
 
-.Game {
-
-}
 
 .Character {
+  display: flex;
+  justify-content: center;
+}
+
+#age, #hungry, #sleepy, #boredom {
+  font-family: 'Oxygen', sans-serif;
+  color: #364D7F;
+  font-size: 25px;
+  display: flex;
+  
+}
+#name, #feed, #lights, #play {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 15px;
+  background-color: #364D7F;
+  color: #FFA4C4;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: flex;
+
+
 
 }
