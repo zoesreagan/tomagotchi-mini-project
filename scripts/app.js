@@ -2,7 +2,7 @@ console.log("hello");
 
 //Create a class for your tomagotchi
 
-class Tomagotchi {
+class Tamagotchi {
   constructor(name, age, hunger, sleepiness, boredom) {
     this.name = name;
     this.age = age;
@@ -35,33 +35,39 @@ $('.Instructions').empty();
 //turn off the lights, and play with your pet
 
 //hunger
-let hunger = 10
+let hunger = 5
   const $hungerDiv = $('<div>');
   $hungerDiv.text("Hunger level is " + hunger);
   $hungerDiv.appendTo($('#hungry'));
 
 $('#feed').on('click', (event) => {
     console.log("feed button clicked");
+    hunger -= 1;
+    $hungerDiv.text("Hunger level is now " + hunger)
 });
 
 //sleep
-let sleepiness = 10
+let sleepiness = 5
   const $sleepyDiv = $('<div>');
   $sleepyDiv.text("Sleepiness level is " + sleepiness);
   $sleepyDiv.appendTo($('#sleepy'));
 
 $('#lights').on('click', (event) => {
     console.log("sleep button clicked");
+    sleepiness -= 1;
+    $sleepyDiv.text("Sleepiness level is now " + sleepiness)
 });
 
 //play
-let boredom = 10
+let boredom = 5
   const $boredomDiv = $('<div>');
   $boredomDiv.text("Boredom level is " + boredom);
   $boredomDiv.appendTo($('#boredom'));
 
 $('#play').on('click', (event) => {
     console.log("play button clicked");
+    boredom -= 1;
+    $boredomDiv.text("Boredom level is now " + boredom);
 });
 
 

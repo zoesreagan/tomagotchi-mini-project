@@ -5,9 +5,12 @@ body {
 header {
   font-family: 'Press Start 2P', cursive;
   color: #FFA4C4;
+  margin: 20px;
   display: flex;
   justify-content: center;
 }
+
+
 
 input {
   font-family: 'Oxygen', sans-serif;
@@ -20,14 +23,16 @@ h1 {
   font-family: 'Press Start 2P', cursive;
   color: #FFA4C4;
   display: flex;
-  justify-content: flex-end;
+}
+
+.Greeting {
+  
 }
 
 .Instructions{
   font-family: 'Oxygen', sans-serif;
   color: #364D7F;
   display: flex;
-  justify-content: center;
 }
 
 
@@ -41,7 +46,7 @@ h1 {
   color: #364D7F;
   font-size: 25px;
   display: flex;
-  
+
 }
 #name, #feed, #lights, #play {
   font-family: 'Press Start 2P', cursive;
