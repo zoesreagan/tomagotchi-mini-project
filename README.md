@@ -1,10 +1,10 @@
 # tomagotchi-mini-project
 
-###Description
+### Description
 
 Let's use our front-end web development skills to create a "living" pet! We'll use HTML, CSS, and Javascript to interact with our pet.
 
-###Requirements
+### Requirements
 Create a repo for your tomagotchi pet
 make a commit after you finish each one of the following
 Create a class for you tomagotchi
