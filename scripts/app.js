@@ -1,78 +1,101 @@
-console.log("hello");
-
-//Create a class for your tomagotchi
-
-class Tamagotchi {
-  constructor(name, age, hunger, sleepiness, boredom) {
-    this.name = name;
-    this.age = age;
-    this.hunger = hunger;
-    this.sleepiness = sleepiness;
-    this.boredom = boredom;
-  }
-}
+console.log("hello, this is a tamagotchi");
+//Create a class for your tamagotchi
 
 //Display a character of your choice on the screen to represent your pet
 const img = $('<img>').attr('src', 'https://vignette.wikia.nocookie.net/tamagotchi/images/3/37/03_Mametchi.svg/revision/latest/scale-to-width-down/241?cb=20111125003832')
 $('.Character').append(img)
 //could add animated gif??
 
-//Add the ability to name your pet
-$('#name').on('click', (event) => {
-  const petName = $('input').val();
-console.log(petName);
-const h1 = $('<h1>').text("My name is " + petName)
-h1.appendTo('.Character');
-$('input').val("");
-$('header').empty();
-$('.Instructions').empty();
-});
+class Tamagotchi {
+  constructor(name, age, hunger, sleepiness, boredom) {
+    this.name = name;
+    this.age = 0;
+    this.hunger = 3;
+    this.sleepiness = 3;
+    this.boredom = 3;
+  }
 
+//Add the ability to name your pet
+  addName(){
+    $('#name').on('click', (event) => {
+        const petName = $('input').val();
+        console.log(petName);
+        const h1 = $('<h1>').text("My name is " + petName)
+        h1.appendTo('.Character');
+        $('input').remove();
+        $('#name').remove();
+        $('header').empty();
+        $('.Instructions').empty();
+    });
+  }
 
 //Display the following metrics for your pet.
 //Hunger (1-10 scale), Sleepiness (1-10 scale), Boredom (1-10 scale), Age
 //Add buttons to the screen to feed your pet,
 //turn off the lights, and play with your pet
 
-//hunger
-let hunger = 5
-  const $hungerDiv = $('<div>');
-  $hungerDiv.text("Hunger level is " + hunger);
-  $hungerDiv.appendTo($('#hungry'));
+  timePasses() {
+    this.hunger = this.hunger + 1;
+    this.boredom = this.boredom + 1;
+    this.sleepiness = this.sleepiness + 1;
+  }
 
+  isAlive() {
+    if (this.hunger < 10 || this.boredom < 10 || this.sleepiness < 10){
+      return true;
+    } else {
+        return false;
+    }
+  }
+
+  feedTama(){
+    this.hunger = this.hunger - 1
+  }
+
+  playTama() {
+    this.boredom = this.boredom - 1
+  }
+
+  sleepTama (){
+    this.sleepiness = this.sleepiness -1
+  }
+}
+
+const newTama = new Tamagotchi('', 0, 1, 1, 1)
+
+newTama.addName();
+// newTama.addAge();
+newTama.isAlive();
+// newTama.timePasses();
+
+
+let countdown;
+countdown = setInterval(function() {
+  newTama.timePasses();
+    $("#hungry").text("Hunger level is " + newTama.hunger);
+    $('#sleepy').text("Sleepiness level is " + newTama.sleepiness);
+    $("#boredom").text("Boredom level is " + newTama.boredom);
+    // if (newTama.boredom && newTama.sleepiness || newTama.hunger === 10000) {
+    //   clearInterval(countdown);
+    // }
+  }, 4000);
+
+
+//buttons
 $('#feed').on('click', (event) => {
     console.log("feed button clicked");
-    hunger -= 1;
-    $hungerDiv.text("Hunger level is now " + hunger)
+    newTama.hunger -= 1;
+    $("#hungry").text("Hunger level is now " + newTama.hunger)
 });
-
-//sleep
-let sleepiness = 5
-  const $sleepyDiv = $('<div>');
-  $sleepyDiv.text("Sleepiness level is " + sleepiness);
-  $sleepyDiv.appendTo($('#sleepy'));
 
 $('#lights').on('click', (event) => {
     console.log("sleep button clicked");
-    sleepiness -= 1;
-    $sleepyDiv.text("Sleepiness level is now " + sleepiness)
+    newTama.sleepiness -= 1;
+    $('#sleepy').text("Sleepiness level is now " + newTama.sleepiness)
 });
-
-//play
-let boredom = 5
-  const $boredomDiv = $('<div>');
-  $boredomDiv.text("Boredom level is " + boredom);
-  $boredomDiv.appendTo($('#boredom'));
 
 $('#play').on('click', (event) => {
     console.log("play button clicked");
-    boredom -= 1;
-    $boredomDiv.text("Boredom level is now " + boredom);
+    newTama.boredom -= 1;
+    $("#boredom").text("Boredom level is now " + newTama.boredom)
 });
-
-
-//Age
-let age = 1
-const $ageDiv = $('<div>');
-$ageDiv.text("Current age is " + age);
-$ageDiv.appendTo($('#age'));
